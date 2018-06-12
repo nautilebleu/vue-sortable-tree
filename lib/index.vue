@@ -123,7 +123,10 @@
                     return event.preventDefault()
                 }
                 // support firfox ..
-                event.dataTransfer.setData('text/plain', null)
+                var isFF = !!window.sidebar;
+                if (isFF === true) {
+                    event.dataTransfer.setData('text/plain', null)
+                }
 
                 this.dragObj.data = this.data
                 this.dragObj.vm = this.$el
